@@ -1,23 +1,21 @@
 from enum import Enum
 
 class TextType(Enum):
-	NORMAL_TEXT = "normal"
-	BOLD_TEXT = "bold"
-	ITALIC_TEXT = "italic"
-	CODE_TEXT = "code"
+	TEXT = "normal"
+	BOLD = "bold"
+	ITALIC = "italic"
+	CODE = "code"
 	LINK = "link"
 	IMAGE = "image"
 
 
 class TextNode:
-	def __init__(self, text, text_type, url):	
-		self.text = text ##actual content for this text node
-		self.text_type = text_type ##required input that must be a valid member of enum, enfores valid types for the node
-		self.url = url ##node contains a link or image or link
+	def __init__(self, text, text_type, url=None):	
+		self.text = text 
+		self.text_type = text_type 
+		self.url = url 
 
 	def __eq__ (self, other):
-		if isinstance(other, TextNode):
-			return False
 		return (
 			self.text == other.text and 
 			self.text_type == other.text_type and
